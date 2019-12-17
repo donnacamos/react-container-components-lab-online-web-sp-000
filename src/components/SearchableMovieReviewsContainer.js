@@ -13,17 +13,17 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
                 searchTerm: "",
                 reviews: []
               };
-            
+
               handleSearchInputChange = event =>
                 this.setState({ searchTerm: event.target.value });
-            
+
               handleSubmit = event => {
                 event.preventDefault();
-            
+
                 fetch(URL.concat(this.state.searchTerm)).then(res => res.json())
                 .then(res => this.setState({ reviews: res.results}));
               };
-            
+
               render() {
                 return (
                   <div className="searchable-movie-reviews">
@@ -38,5 +38,5 @@ const URL = 'https://api.nytimes.com/svc/movies/v2/reviews/search.json?'
                 )
               }
             }
-            
+
             export default SearchableMovieReviewsContainer;
